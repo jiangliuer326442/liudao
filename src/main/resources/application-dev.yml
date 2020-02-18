@@ -1,0 +1,22 @@
+custom:
+  call:
+    base: http://127.0.0.1:8080
+    url: ${custom.call.base}/open/
+  version: 2
+  path:
+    base: /usr/local/onlinetool2
+    logs: ${custom.path.base}/logs
+    tars: ${custom.path.base}/tars
+    reponsitory: ${custom.path.base}/reponsitory
+    config: ${custom.path.base}/config
+  jobs:
+    pm2:
+        start: pm2 start %base% --interpreter %interpreter% -n %name% -- %args%
+        reload: pm2 reload %name%
+server:
+  port: 9535
+logging:
+  level:
+    org.springframework: ERROR
+    org.apache: ERROR
+    com.onlinetool.userprofile.client.service.impl.DeployLoggerImpl: INFO

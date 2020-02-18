@@ -1,0 +1,35 @@
+plugins {
+    id 'org.springframework.boot' version '2.1.8.RELEASE'
+    id 'io.spring.dependency-management' version '1.0.8.RELEASE'
+    id 'java'
+}
+
+group = 'com.onlinetool.userprofile'
+version = '1.0.1'
+sourceCompatibility = '1.8'
+
+repositories {
+    maven{ url 'http://maven.aliyun.com/nexus/content/groups/public'}
+}
+
+dependencies {
+    //网站开发基本配置
+    implementation 'org.springframework.boot:spring-boot-starter-web'
+
+    implementation 'org.springframework.boot:spring-boot-starter-freemarker'
+
+    //服务端给页面主动推消息
+    implementation 'org.springframework.boot:spring-boot-starter-websocket'
+
+    //分之合并以及回滚等
+    implementation 'org.apache.httpcomponents:httpclient:4.5.5'
+    implementation 'org.eclipse.jgit:org.eclipse.jgit:5.5.0.201909110433-r'
+    implementation 'com.jcraft:jsch:0.1.54'
+    implementation 'org.apache.commons:commons-compress:1.19'
+    //上线之前建表
+    implementation 'mysql:mysql-connector-java'
+    //使用大站相关微服务
+    implementation "org.hprose:hprose-java:2.0.38"
+
+    testImplementation 'org.springframework.boot:spring-boot-starter-test'
+}
