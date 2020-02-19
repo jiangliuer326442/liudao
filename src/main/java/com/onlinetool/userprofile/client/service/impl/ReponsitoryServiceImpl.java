@@ -210,7 +210,7 @@ public class ReponsitoryServiceImpl implements ReponsitoryService {
             } catch (CloneNotSupportedException ignored) {}
             return null;
         }
-        repository = git.getRepository();
+        Repository repository = git.getRepository();
 
         //切到主分支并拉取最新代码
         try {

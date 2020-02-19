@@ -5,34 +5,19 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import com.onlinetool.userprofile.client.library.constant.DeployEnvConstant;
 import com.onlinetool.userprofile.client.library.constant.ResultCodeConstant;
 import com.onlinetool.userprofile.client.library.util.Call;
-import com.onlinetool.userprofile.client.model.entity.DiffContentLine;
 import com.onlinetool.userprofile.client.model.entity.DiffFileEntity;
 import com.onlinetool.userprofile.client.model.object.*;
 import com.onlinetool.userprofile.client.service.DeployLogger;
 import com.onlinetool.userprofile.client.service.DeployService;
 import com.onlinetool.userprofile.client.service.ReponsitoryService;
-import org.eclipse.jgit.api.Git;
 import org.eclipse.jgit.api.errors.GitAPIException;
-import org.eclipse.jgit.diff.DiffEntry;
-import org.eclipse.jgit.diff.DiffFormatter;
-import org.eclipse.jgit.lib.ObjectId;
-import org.eclipse.jgit.lib.ObjectReader;
-import org.eclipse.jgit.lib.Repository;
-import org.eclipse.jgit.revwalk.RevCommit;
-import org.eclipse.jgit.treewalk.CanonicalTreeParser;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Value;
-import org.springframework.util.concurrent.ListenableFuture;
 import org.springframework.web.bind.annotation.*;
 
 import java.io.*;
-import java.nio.charset.Charset;
-import java.nio.charset.StandardCharsets;
-import java.text.SimpleDateFormat;
 import java.util.*;
 import java.util.concurrent.ExecutionException;
 import java.util.concurrent.Future;
-import java.util.logging.Logger;
 
 /**
  * @author jiangliuer
