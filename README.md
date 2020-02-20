@@ -8,9 +8,7 @@ typora-root-url: ./
 
 ##### 体验账号
 
-账号：test@qq.com
-
-密码：Test123456
+账号：test@qq.com  密码：Test123456  测试微服务对应的git地址为：<https://gitee.com/onlinetool/test>
 
 ![线上部署](/doc/演示.gif)
 
