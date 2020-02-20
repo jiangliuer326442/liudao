@@ -70,6 +70,27 @@ typora-root-url: ./
   nohup java -jar build/lib/onlinetool_client.jar &
   ```
 
+  使用nginx代理配置
+
+  ```nginx
+  server {
+      listen       80;
+      server_name  client.onlinetool.fanghailiang.cn;
+  
+      location / {
+          proxy_pass http://127.0.0.1:9535;
+          proxy_set_header    Host     $host;
+          proxy_http_version 1.1;
+          proxy_set_header Upgrade $http_upgrade;
+          proxy_set_header Connection "upgrade";
+      }
+  
+      access_log  /var/log/nginx/client.onlinetool.fanghailiang.cn.log main;
+  }
+  ```
+
+  
+
   ### 联系我
 
   使用中有任何问题可以直接与我沟通，微信如下：
