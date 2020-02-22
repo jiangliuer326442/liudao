@@ -4,7 +4,7 @@ typora-root-url: ./
 
 ## 上线工具 客户端
 
-> 上线工具客户端 是[<http://h5.onlinetool.fanghailiang.cn/>](流刀上线工具)用于在您团队内网进行项目的打包上线发布流程的代理工具。流刀上线工具并不会直接与该客户端工具所在的服务器进行交互，但要求您团队的成员能够有权访问到上线工具部署的服务器。
+> 上线工具客户端 是[<http://h5.companyclub.cn/>](流刀上线工具)用于在您团队内网进行项目的打包上线发布流程的代理工具。流刀上线工具并不会直接与该客户端工具所在的服务器进行交互，但要求您团队的成员能够有权访问到上线工具部署的服务器。
 
 ##### 体验账号
 
@@ -73,7 +73,7 @@ typora-root-url: ./
   ```nginx
   server {
       listen       80;
-      server_name  client.onlinetool.fanghailiang.cn;
+      server_name  client.companyclub.cn;
   
       location / {
           proxy_pass http://127.0.0.1:9535;
@@ -83,7 +83,7 @@ typora-root-url: ./
           proxy_set_header Connection "upgrade";
       }
   
-      access_log  /var/log/nginx/client.onlinetool.fanghailiang.cn.log main;
+      access_log  /var/log/nginx/client.companyclub.cn.log main;
   }
   ```
 

@@ -1,6 +1,6 @@
 custom:
   call:
-    base: http://api.onlinetool.fanghailiang.cn
+    base: http://api.companyclub.cn
     url: ${custom.call.base}/open/
   version: 2
   path:
