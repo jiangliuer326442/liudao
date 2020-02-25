@@ -73,40 +73,13 @@ typora-root-url: ./
 
      
 
-  ### 从源码编译：
-
-  需要jdk 1.8
-
-  git 克隆项目源码，执行
-
-  ```
-  ./gradlew bootJar
-  ```
-
-  运行
-
-  ```
-  nohup java -jar build/lib/onlinetool_client.jar &
-  ```
-
-  使用nginx代理配置
-
-  ```nginx
-  server {
-      listen       80;
-      server_name  client.companyclub.cn;
-  
-      location / {
-          proxy_pass http://127.0.0.1:9535;
-          proxy_set_header    Host     $host;
-          proxy_http_version 1.1;
-          proxy_set_header Upgrade $http_upgrade;
-          proxy_set_header Connection "upgrade";
-      }
-  
-      access_log  /var/log/nginx/client.companyclub.cn.log main;
-  }
-  ```
+  ### 在各个环境下的开发部署流程
+  1. 上线工具服务端
+    [https://gitee.com/onlinetool/liudao/wikis/%E4%B8%8A%E7%BA%BF%E5%B7%A5%E5%85%B7%E6%9C%8D%E5%8A%A1%E7%AB%AF?sort_id=1942585](https://gitee.com/onlinetool/liudao/wikis/%E4%B8%8A%E7%BA%BF%E5%B7%A5%E5%85%B7%E6%9C%8D%E5%8A%A1%E7%AB%AF?sort_id=1942585)
+  2. 上线工具客户端
+    [https://gitee.com/onlinetool/liudao/wikis/%E4%B8%8A%E7%BA%BF%E5%B7%A5%E5%85%B7%E5%AE%A2%E6%88%B7%E7%AB%AF?sort_id=1942599](https://gitee.com/onlinetool/liudao/wikis/%E4%B8%8A%E7%BA%BF%E5%B7%A5%E5%85%B7%E5%AE%A2%E6%88%B7%E7%AB%AF?sort_id=1942599)
+  3. 上线工具前端
+    [https://gitee.com/onlinetool/liudao/wikis/%E4%B8%8A%E7%BA%BF%E5%B7%A5%E5%85%B7%E5%89%8D%E7%AB%AF?sort_id=1942663](https://gitee.com/onlinetool/liudao/wikis/%E4%B8%8A%E7%BA%BF%E5%B7%A5%E5%85%B7%E5%89%8D%E7%AB%AF?sort_id=1942663)
 
   
 
