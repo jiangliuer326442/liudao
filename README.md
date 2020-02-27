@@ -12,27 +12,6 @@ typora-root-url: ./
 
 ![线上部署](/doc/演示.gif)
 
-> 由于作者本人忙于工（ban）作（zhuan），对该上线工具中出现的各类bug的维护缺乏诚意。固将项目的全部代码公开，如果您的企业也有同样或类似的需求，可以在贵司的企业内部部署，遇到bug帮忙完善。。。我想该项目适合创业公司使用，笔者所在的公司则是使用瓦力上线工具进行上线。但瓦力有三个缺点，让我无法忍受，固忙里偷闲的开发了此项目：
->
-> 1. 对微服务支持力太差。笔者一个app的版本迭代上线通常涉及六七个微服务，使用瓦力需要创建六七个上线单。
->
-> 2. 没有考虑互联网公司开发、测试、预发布、上线流程的规范化的问题。一般都是自己提交上线单自己上线。
->
-> 3. 只支持代码级别的部署上线，对数据库、定时任务、后台脚本的上线根本没有支持。
->
-> 4. 上线过程中有时会遇到莫名其妙的bug，包括软连接指向错误、执行脚本命令卡死。。。
->
->    如果您在使用本产品的过程中，不仅帮忙改善了本软件的一些bug，还增加了以下这些功能，并将它作为产品开源出来，将是功德无量啊。
->
->    1. 自动在预发布环境跑数据功能。开发人员将导数据的需求写在某个微服务的某个分支上，上线人员在预发布环境切到该分支，执行开发人员指定的cli命令。完了之后，将预发布环境指定目录下的某个csv文件下载下来，给程序员或相关运营部门的人员。
->    2. 提交上线单时指定的定时任务，能够在上线单上线之后自动部署到服务器。主要目的无非是，将固定重复且包含一定危险性的登录服务器的操作，尽量交给程序来完成。
-
-上线工具服务端：<https://gitee.com/onlinetool/onlinetool_server> 使用springboot框架开发。编译部署不知道的别来问我，代码架构就是springboot的标准代码结构
-
-上线工具前端：<https://gitee.com/onlinetool/static> 使用react框架开发，redux要求的标准代码结构。代码编译打包命令：npm run build.
-
-希望在研究学习代码的过程中不忘造福他人的使命，一个不想写业务逻辑的架构师不是一个好码农！！！
-
 ### 主要功能：
 
 - 项目/微服务管理
@@ -75,11 +54,11 @@ typora-root-url: ./
 
   ### 在各个环境下的开发部署流程
   1. 上线工具服务端
-    [https://gitee.com/onlinetool/liudao/wikis/%E4%B8%8A%E7%BA%BF%E5%B7%A5%E5%85%B7%E6%9C%8D%E5%8A%A1%E7%AB%AF?sort_id=1942585](https://gitee.com/onlinetool/liudao/wikis/%E4%B8%8A%E7%BA%BF%E5%B7%A5%E5%85%B7%E6%9C%8D%E5%8A%A1%E7%AB%AF?sort_id=1942585)
+      [https://gitee.com/onlinetool/liudao/wikis/%E4%B8%8A%E7%BA%BF%E5%B7%A5%E5%85%B7%E6%9C%8D%E5%8A%A1%E7%AB%AF?sort_id=1942585](https://gitee.com/onlinetool/liudao/wikis/%E4%B8%8A%E7%BA%BF%E5%B7%A5%E5%85%B7%E6%9C%8D%E5%8A%A1%E7%AB%AF?sort_id=1942585)
   2. 上线工具客户端
-    [https://gitee.com/onlinetool/liudao/wikis/%E4%B8%8A%E7%BA%BF%E5%B7%A5%E5%85%B7%E5%AE%A2%E6%88%B7%E7%AB%AF?sort_id=1942599](https://gitee.com/onlinetool/liudao/wikis/%E4%B8%8A%E7%BA%BF%E5%B7%A5%E5%85%B7%E5%AE%A2%E6%88%B7%E7%AB%AF?sort_id=1942599)
+      [https://gitee.com/onlinetool/liudao/wikis/%E4%B8%8A%E7%BA%BF%E5%B7%A5%E5%85%B7%E5%AE%A2%E6%88%B7%E7%AB%AF?sort_id=1942599](https://gitee.com/onlinetool/liudao/wikis/%E4%B8%8A%E7%BA%BF%E5%B7%A5%E5%85%B7%E5%AE%A2%E6%88%B7%E7%AB%AF?sort_id=1942599)
   3. 上线工具前端
-    [https://gitee.com/onlinetool/liudao/wikis/%E4%B8%8A%E7%BA%BF%E5%B7%A5%E5%85%B7%E5%89%8D%E7%AB%AF?sort_id=1942663](https://gitee.com/onlinetool/liudao/wikis/%E4%B8%8A%E7%BA%BF%E5%B7%A5%E5%85%B7%E5%89%8D%E7%AB%AF?sort_id=1942663)
+      [https://gitee.com/onlinetool/liudao/wikis/%E4%B8%8A%E7%BA%BF%E5%B7%A5%E5%85%B7%E5%89%8D%E7%AB%AF?sort_id=1942663](https://gitee.com/onlinetool/liudao/wikis/%E4%B8%8A%E7%BA%BF%E5%B7%A5%E5%85%B7%E5%89%8D%E7%AB%AF?sort_id=1942663)
 
   
 
