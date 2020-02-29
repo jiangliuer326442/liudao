@@ -65,7 +65,7 @@ public class ReponsitoryServiceImpl implements ReponsitoryService {
         return null;
     }
 
-    private Ref findRefByBranch(String branch, boolean remoteFlg){
+    private Ref findRefByBranch(Repository repository, String branch, boolean remoteFlg){
         //分支合并
         Ref ref = null;
         try {
@@ -234,7 +234,7 @@ public class ReponsitoryServiceImpl implements ReponsitoryService {
 
             if(!repository.getBranch().equals(branch)){
                 //判断本地是否有该分支
-                Ref ref = this.findRefByBranch(branch, false);
+                Ref ref = this.findRefByBranch(repository, branch, false);
                 if (ref == null){
                     //拉取远程分支
                     try {
@@ -339,8 +339,9 @@ public class ReponsitoryServiceImpl implements ReponsitoryService {
             } catch (CloneNotSupportedException ignored) {}
             return false;
         }
+        Repository repository = git.getRepository();
         //分支合并
-        Ref ref = this.findRefByBranch(fromBranch, true);
+        Ref ref = this.findRefByBranch(repository, fromBranch, true);
         if(ref == null){
             Exception e = new Exception("分支 "+fromBranch+" 不存在");
             ExceptionDetail exceptionDetail = new ExceptionDetail(e, new HashMap<String, String>(){

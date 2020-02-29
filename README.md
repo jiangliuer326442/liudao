@@ -4,11 +4,15 @@ typora-root-url: ./
 
 ## 上线工具 客户端
 
+> 想象一下这样一个场景：某做聊天交友的互联网公司有多款社交产品，由不同的技术组负责独立开发，现在其海外产品正在开发v1.3.5的功能，主要更新为 app新增马来语。需要测试、预发布、上线的微服务有七个：feed(社区内容)，user（用户管理），live（直播相关），social（聊天交友），task（任务系统），static（h5资源），api（流量入口）。在测试、预发布部署的过程中涉及到数据库相关部署、各种job（后台常驻脚本）的创建和重启等。测试人员没办法一直测试该版本内容，时不时的需要测一些海外app上线的各类活动玩法，所以测试环境也时常需要腾出来给其他程序员的分支进行测试。你是该海外app该版本的开发人员，苦于反复在测试环境部署，你还得去指导上线人员如何在预发布环境部署，如何上线。。。
+>
+> 如何将自己从这种在测试环境和预发布环境重复繁琐无意义的部署工作中解脱，进行一键部署呢？如何免除每次都要测试人员找你去帮他部署到测试环境，然后你还要告诉他已经部署好了这种低效的沟通？
+>
 > 上线工具客户端 是[<http://h5.companyclub.cn/>](流刀上线工具)用于在您团队内网进行项目的打包上线发布流程的代理工具。流刀上线工具并不会直接与该客户端工具所在的服务器进行交互，但要求您团队的成员能够有权访问到上线工具部署的服务器。
 
-##### 体验账号
+#### 体验账号
 
-账号：test@qq.com  密码：Test123456  测试微服务对应的git地址为：<https://gitee.com/onlinetool/test>
+账号：test@qq.com  密码：Test123456 
 
 ![线上部署](/doc/演示.gif)
 
@@ -36,7 +40,34 @@ typora-root-url: ./
 
   
 
-  #### 问答：
+### 使用流程：
+
+  1. 注册账号
+
+  2. 部署客户端工具（参照下面的方法在自己团队的服务器上部署客户端工具，并开放9535端口对团队成员开放）
+
+  3. 在网页 团队设置 - 客户端 中填写 客户端工具部署的对团队成员开放的ip和端口号。
+
+  4. 创建项目。
+
+    创建时可以填钉钉、企业微信的机器人hook，上线工具用于团队成员自动发布各种通知。
+    
+    创建完成后进行到项目中的项目设置页面，需要填写项目的开发、测试、上线人员（可以是同一个人）。
+
+  5. 创建微服务。
+
+    在创建该微服务之前，先登录到您安装客户端工具的那台服务器，cd 到 /usr/local/onlinetool/reponsitory/ 目录下（无论你是用那种方式安装的客户端工具，运行后都会自动创该目录的）。执行类似如下命令 `git clone [该微服务的地址] -b [微服务的主分支] [项目名（英文）]_[微服务名（英文）]`
+    
+    创建微服务时的 **git文件夹目录** 填写上面的  **[项目名（英文）]_[微服务名（英文）]`** ,创建微服务时会涉及到您填写测试、预发布、线上环境服务器、数据库的连接信息，不用担心这些隐私泄露的问题，因为这心内容不会上传到平台，保存在您运行客户端工具的服务器上的的 `/usr/local/onlinetool/config` 文件中。其他内容根据您团队项目的实际情况填写。
+
+  6. 提交上线单。 
+
+    在项目左侧的列表中点击提交上线单，主要填写的内容是您本次上线的内容描述，需要上线的微服务，每个微服务需要上线的分支，这个微服务上线前需要执行哪些sql语句。上线完成之后需要创建、重启哪些job等。
+    
+    上线工具会将上线流程推送到测试人员那边，有他选择测试环境进行自动部署，测试人员点击测试通过后会推送到上线人员那里，由他来决定是否在预发布环境测试或者直接上线。
+
+
+### 问答：
 
   1. 上线工具上线的原理是什么？
 
@@ -52,20 +83,41 @@ typora-root-url: ./
 
      
 
-  ### 在各个环境下的开发部署流程
-  1. 上线工具服务端
-      [https://gitee.com/onlinetool/liudao/wikis/%E4%B8%8A%E7%BA%BF%E5%B7%A5%E5%85%B7%E6%9C%8D%E5%8A%A1%E7%AB%AF?sort_id=1942585](https://gitee.com/onlinetool/liudao/wikis/%E4%B8%8A%E7%BA%BF%E5%B7%A5%E5%85%B7%E6%9C%8D%E5%8A%A1%E7%AB%AF?sort_id=1942585)
-  2. 上线工具客户端
-      [https://gitee.com/onlinetool/liudao/wikis/%E4%B8%8A%E7%BA%BF%E5%B7%A5%E5%85%B7%E5%AE%A2%E6%88%B7%E7%AB%AF?sort_id=1942599](https://gitee.com/onlinetool/liudao/wikis/%E4%B8%8A%E7%BA%BF%E5%B7%A5%E5%85%B7%E5%AE%A2%E6%88%B7%E7%AB%AF?sort_id=1942599)
-  3. 上线工具前端
-      [https://gitee.com/onlinetool/liudao/wikis/%E4%B8%8A%E7%BA%BF%E5%B7%A5%E5%85%B7%E5%89%8D%E7%AB%AF?sort_id=1942663](https://gitee.com/onlinetool/liudao/wikis/%E4%B8%8A%E7%BA%BF%E5%B7%A5%E5%85%B7%E5%89%8D%E7%AB%AF?sort_id=1942663)
+### 客户端工具部署方式：
+从发布页面下载jar包：<https://gitee.com/onlinetool/liudao/releases/v1.0.1> ,然后有两种方式可供选择。
 
-  
+- 自己安装jdk进行部署
 
-  ### 联系我
+  1. 下载jdk1.8以上
+  2. 创建/usr/local/onlinetooll文件夹 `mkdir /usr/local/onlinetool && chown -R [当前用户名]:[当前用户所在的组] /usr/local/onlinetool`
+  3. 运行下载的jar包。`nohub java -jar onlinetool_client-1.0.1.jar &`
 
-  使用中有任何问题可以直接与我沟通，微信如下：
+- 使用docker部署
 
-  ![加我微信](/doc/加我微信.png)
+  1. Dockerfile 内容如下（读者根据实际情况进行修改）：
+
+       ```dockerfile
+       FROM openjdk:8-jdk-alpine
+       VOLUME /tmp
+       ADD ./.ssh /root/.ssh
+       ADD onlinetool_client-1.0.1.jar app.jar
+       EXPOSE 9535
+       # 这是我为了远程调试用的的
+       # EXPOSE 5005
+       # ENTRYPOINT ["java", "-Xdebug", "-Xnoagent", "-Djava.compiler=NONE", "-Xrunjdwp:transport=dt_socket,address=5005,server=y,suspend=n", "-jar", "/app.jar"]
+       ENTRYPOINT ["java","-Djava.security.egd=file:/dev/./urandom","-jar","/app.jar"]
+       ```
+
+       
+
+  2. 编译镜像 `docker build -t onlinetool_client .`
+
+  3. 运行容器 `docker run -it -d -p 9535:9535 -v /usr/local/onlinetool:/usr/local/onlinetool onlinetool_client`
+
+### 联系我
+
+使用中有任何问题可以直接与我沟通，微信如下：
+
+![加我微信](/doc/加我微信.png)
 
   
